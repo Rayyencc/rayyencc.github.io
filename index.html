@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rayyen</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" type="image/x-icon" href="icon.png">
+</head>
+<div id="toast" class="toast"></div>
+
+<body>
+    <div id="musicConsent" class="consent-popup">
+        <div class="consent-content">
+            <div class="consent-icon">🙋‍♂️</div>
+            <h3>Welcome to Rayyen's Portfolio</h3>
+            <p>Would you like to enable background music for a better experience?</p>
+            <div class="consent-buttons">
+                <button id="consentYes" class="consent-btn consent-yes">
+                    <i data-feather="play"></i> Yes, Play Music </button>
+                <button id="consentNo" class="consent-btn consent-no">
+                    <i data-feather="x"></i> No Thanks </button>
+            </div>
+        </div>
+    </div>
+    <div class="snowflakes">
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+        <div class="snowflake-dot"></div>
+    </div>
+    <div class="music-player-top" id="musicPlayer">
+        <div class="player-content-top">
+            <img src="1.png" alt="Album Cover" class="album-art-top" id="albumArt">
+            <div class="track-info-top">
+                <div class="track-name-top" id="trackName">Show me how</div>
+                <div class="track-artist-top" id="trackArtist">Jalenrekt • <span id="trackPosition">1 of 5</span></div>
+            </div>
+            <div class="player-controls-top">
+                <button class="control-btn-top" id="prevBtn">
+                    <i data-feather="skip-back"></i>
+                </button>
+                <button class="control-btn-top play-pause-top" id="playPauseBtn">
+                    <i data-feather="play" id="playPauseIcon"></i>
+                </button>
+                <button class="control-btn-top" id="nextBtn">
+                    <i data-feather="skip-forward"></i>
+                </button>
+            </div>
+            <div class="progress-container-top" id="progressContainer">
+                <div class="progress-bar-top" id="progressBar"></div>
+            </div>
+            <div class="time-display-top">
+                <span id="currentTime">0:00</span>
+                <span>/</span>
+                <span id="duration">0:00</span>
+            </div>
+            <div class="volume-control-top">
+                <i class="volume-icon-top" data-feather="volume-1" id="volumeIcon"></i>
+                <div class="volume-slider-container">
+                    <div class="volume-slider-top" id="volumeSlider">
+                        <div class="volume-level-top" id="volumeLevel"></div>
+                        <div class="volume-dot" id="volumeDot"></div>
+                    </div>
+                    <div class="volume-percent" id="volumePercent" 10%</div>
+                    </div>
+                </div>
+                <button class="player-toggle-top" id="playerToggle">
+                    <i data-feather="chevron-up"></i>
+                </button>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="profile.jpg" alt="Rayyen" class="nav-profile-pic">
+                <div class="nav-status-dot"></div>
+                <div class="nav-user-info">
+                    <span class="nav-username">Rayyen</span>
+                    <span class="nav-status">Online</span>
+                </div>
+            </div>
+            <div class="nav-item active" data-target="home">
+                <i data-feather="home"></i>
+                <span class="nav-label">Home</span>
+            </div>
+            <div class="nav-item" data-target="links">
+                <i data-feather="paperclip"></i>
+                <span class="nav-label">Links</span>
+            </div>
+            <div class="nav-item" data-target="services">
+                <i data-feather="shopping-bag"></i>
+                <span class="nav-label">Services</span>
+            </div>
+            <div class="nav-item" data-target="tools">
+                <i data-feather="tool"></i>
+                <span class="nav-label">Tools</span>
+            </div>
+            <div class="nav-footer">
+                <div class="nav-stat">
+                    <span class="stat-number">2+</span>
+                    <span class="stat-label">Years</span>
+                </div>
+                <div class="nav-stat">
+                    <span class="stat-number">32+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+            </div>
+        </div>
+        <main>
+            <section id="home" class="section active">
+                <div class="content">
+                    <div class="hero-section">
+                        <div class="hero-bg-elements">
+                            <div class="floating-shape shape-1"></div>
+                            <div class="floating-shape shape-2"></div>
+                            <div class="floating-shape shape-3"></div>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <div class="profile-container">
+                            <div class="profile-image-wrapper">
+                                <img src="profile.jpg" alt="Rayyen" class="profile-image">
+                                <div class="profile-glow"></div>
+                                <div class="online-status">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Online</span>
+                                </div>
+                            </div>
+                            <div class="hero-text">
+                                <h1 class="hero-title">
+                                    <span class="greeting">Hey, I'm</span>
+                                    <span class="name">Rayyen</span>
+                                </h1>
+                                <div class="typing-container">
+                                    <h3 class="typing-text">I'm a <span id="typed"></span></h3>
+                                    <div class="typing-cursor"></div>
+                                </div>
+                                <p class="hero-description">Developer specializing in C++ with expertise in carding services and CC sales. Building secure solutions since 2023.</p>
+                                <div class="action-buttons">
+                                    <button class="action-btn primary" data-target="links">
+                                        <i data-feather="paperclip"></i>
+                                        <span>My Links</span>
+                                    </button>
+                                    <button class="action-btn secondary" data-target="services">
+                                        <i data-feather="shopping-bag"></i>
+                                        <span>Services</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-section">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-content">
+                                    <h4 class="stat-number">2+</h4>
+                                    <p class="stat-label">Years Coding</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-content">
+                                    <h4 class="stat-number">32+</h4>
+                                    <p class="stat-label">Projects Made</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-content">
+                                    <h4 class="stat-number">50+</h4>
+                                    <p class="stat-label">Happy Clients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="section-header">
+                            <h2>Programming Languages</h2>
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                                </div>
+                                <span class="skill-name">C++</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                                </div>
+                                <span class="skill-name">Python</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+                                </div>
+                                <span class="skill-name">C#</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                                </div>
+                                <span class="skill-name">HTML</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                                </div>
+                                <span class="skill-name">CSS</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-glow-1"></div>
+                <div class="bg-glow-2"></div>
+            </section>
+            <section id="links" class="section">
+                <div class="content">
+                    <h2>My Links</h2>
+                    <p class="subtext">Click an icon to visit my profiles and wallets</p>
+                    <div class="links-grid">
+                        <a href="https://discord.com/users/1388625676973899776" target="_blank" class="link-card">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg" alt="Discord">
+                            <span>Discord</span>
+                        </a>
+                        <a href="https://t.me/rayyencc" target="_blank" class="link-card">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/telegram.svg" alt="Telegram">
+                            <span>Telegram</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@lazer.dim..700" target="_blank" class="link-card">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tiktok.svg" alt="TikTok">
+                            <span>TikTok</span>
+                        </a>
+                        <a href="https://discord.gg/YySsUu7kn4" target="_blank" class="link-card">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg" alt="Discord Server">
+                            <span>Discord Server</span>
+                        </a>
+                        <a href="#" class="link-card crypto-wallet" data-address="bc1q6gg0e2uv5c6g7k33sxd445fq53l5gh8lk3mepl" data-coin="BTC">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/bitcoin.svg" alt="BTC">
+                            <span>BTC</span>
+                        </a>
+                        <a href="#" class="link-card crypto-wallet" data-address="AksbzAW7uvW3qWQfkQvu1H9SUTRnmGTs1PsGBCD8SYJB" data-coin="SOL">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/solana.svg" alt="SOL">
+                            <span>SOL</span>
+                        </a>
+                        <a href="#" class="link-card crypto-wallet" data-address="0x0Fa56C59DeCff93eeBa8dfd1A9bDc41Ac20C2129" data-coin="USDT">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tether.svg" alt="USDT">
+                            <span>USDT</span>
+                        </a>
+                        <a href="#" class="link-card crypto-wallet" data-address="ltc1qr055yg4vzaz3wr8xpshra3p86cht64w4lw24p" data-coin="LTC">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/litecoin.svg" alt="LTC">
+                            <span>LTC</span>
+                        </a>
+                    </div>
+                </div>
+                <div id="toast" class="toast">Copied to clipboard!</div>
+                <div class="glow-orb"></div>
+            </section>
+            <section id="services" class="section">
+                <div class="content">
+                    <h2>What I Offer</h2>
+                    <p class="subtext">Premium services for your needs</p>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">💳</div>
+                            <h3>Carding Services</h3>
+                            <p>Premium carding methods and tutorials for secure transactions</p>
+                            <div class="service-features">
+                                <span>Secure Methods</span>
+                                <span>Tutorials</span>
+                                <span>Support</span>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🔐</div>
+                            <h3>CC Shop</h3>
+                            <p>Fresh credit cards with high balances and verified information</p>
+                            <div class="service-features">
+                                <span>Fresh Cards</span>
+                                <span>High Balance</span>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">⚡</div>
+                            <h3>Fortnite Accounts</h3>
+                            <p>Fortnite Accounts with whatever you want for cheap</p>
+                            <div class="service-features">
+                                <span>Cheap Accounts</span>
+                                <span>Email Change</span>
+                                <span>Secure</span>
+                            </div>
+                        </div>
+                        <div class="service-card-bl">
+                            <div class="service-icon">🏦</div>
+                            <h3>Bank Logs</h3>
+                            <p class="plog">Cheap Bank logs you can easily cash out, straight from me to you for cheap, you won't regret it</p>
+                            <div class="service-features">
+                                <span>Cheap logs</span>
+                                <span>100% Works</span>
+                                <span>Easy Cashout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="tools" class="section">
+                <div class="content">
+                    <h2>Tools & Resources</h2>
+                    <p class="subtext">Essential tools and resources I use daily</p>
+                    <div class="tools-main-grid">
+                        <div class="tool-category">
+                            <div class="category-header">
+                                <h3>🛠️ Development</h3>
+                                <span class="category-count">4 tools</span>
+                            </div>
+                            <div class="tool-list">
+                                <div class="tool-item" data-tool="vscode">
+                                    <div class="tool-info">
+                                        <span class="tool-name">VS Code</span>
+                                        <span class="tool-desc">Primary code editor with C++ extensions</span>
+                                    </div>
+                                    <div class="tool-badge">Essential</div>
+                                </div>
+                                <div class="tool-item" data-tool="git">
+                                    <div class="tool-info">
+                                        <span class="tool-name">Git & GitHub</span>
+                                        <span class="tool-desc">Version control and collaboration</span>
+                                    </div>
+                                    <div class="tool-badge">Must-have</div>
+                                </div>
+                                <div class="tool-item" data-tool="cmake">
+                                    <div class="tool-info">
+                                        <span class="tool-name">CMake</span>
+                                        <span class="tool-desc">C++ build system and project management</span>
+                                    </div>
+                                    <div class="tool-badge">Advanced</div>
+                                </div>
+                                <div class="tool-item" data-tool="postman">
+                                    <div class="tool-info">
+                                        <span class="tool-name">Postman</span>
+                                        <span class="tool-desc">API testing and development</span>
+                                    </div>
+                                    <div class="tool-badge">Useful</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-category">
+                            <div class="category-header">
+                                <h3>🔒 Security</h3>
+                                <span class="category-count">4 tools</span>
+                            </div>
+                            <div class="tool-list">
+                                <div class="tool-item" data-tool="proxies">
+                                    <div class="tool-info">
+                                        <span class="tool-name">Residential Proxies</span>
+                                        <span class="tool-desc">For secure browsing and testing</span>
+                                    </div>
+                                    <div class="tool-badge recommended">Recommended</div>
+                                </div>
+                                <div class="tool-item" data-tool="vpn">
+                                    <div class="tool-info">
+                                        <span class="tool-name">Mullvad VPN</span>
+                                        <span class="tool-desc">No-logs VPN for privacy</span>
+                                    </div>
+                                    <div class="tool-badge essential">Essential</div>
+                                </div>
+                                <div class="tool-item" data-tool="vm">
+                                    <div class="tool-info">
+                                        <span class="tool-name">VirtualBox</span>
+                                        <span class="tool-desc">Sandboxed testing environments</span>
+                                    </div>
+                                    <div class="tool-badge">Security</div>
+                                </div>
+                                <div class="tool-item" data-tool="password">
+                                    <div class="tool-info">
+                                        <span class="tool-name">Bitwarden</span>
+                                        <span class="tool-desc">Password manager</span>
+                                    </div>
+                                    <div class="tool-badge">Must-have</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-category">
+                            <div class="category-header">
+                                <h3>🎯 Carding Tools</h3>
+                                <span class="category-count">4 tools</span>
+                            </div>
+                            <div class="tool-list">
+                                <div class="tool-item" data-tool="checker">
+                                    <div class="tool-info">
+                                        <span class="tool-name">CC Checker</span>
+                                        <span class="tool-desc">Validate card details and balances</span>
+                                    </div>
+                                    <div class="tool-badge essential">Essential</div>
+                                </div>
+                                <div class="tool-item" data-tool="bins">
+                                    <div class="tool-info">
+                                        <span class="tool-name">BIN Database</span>
+                                        <span class="tool-desc">Bank identification number lookup</span>
+                                    </div>
+                                    <div class="tool-badge">Reference</div>
+                                </div>
+                                <div class="tool-item" data-tool="socks5">
+                                    <div class="tool-info">
+                                        <span class="tool-name">SOC5 Manager</span>
+                                        <span class="tool-desc">Proxy Manager</span>
+                                    </div>
+                                    <div class="tool-badge recommended">Recommended</div>
+                                </div>
+                                <div class="tool-item" data-tool="antidetect">
+                                    <div class="tool-info">
+                                        <span class="tool-name">Anonymous Browser</span>
+                                        <span class="tool-desc">Anonymous Web Browsing</span>
+                                    </div>
+                                    <div class="tool-badge">Advanced</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-orb"></div>
+                </div>
+            </section>
+        </main>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                feather.replace();
+                const musicConsent = document.getElementById('musicConsent');
+                const consentYes = document.getElementById('consentYes');
+                const consentNo = document.getElementById('consentNo');
+                let musicStarted = false;
+                let userConsent = null;
+                setTimeout(() => {
+                    musicConsent.classList.add('active');
+                }, 1000);
+                consentYes.addEventListener('click', () => {
+                    userConsent = true;
+                    musicConsent.classList.remove('active');
+                    startMusic();
+                    feather.replace();
+                });
+                consentNo.addEventListener('click', () => {
+                    userConsent = false;
+                    musicConsent.classList.remove('active');
+                    feather.replace();
+                });
+
+                function startMusic() {
+                    if (!musicStarted && userConsent) {
+                        playTrack();
+                        musicStarted = true;
+                    }
+                }
+                const musicPlayer = document.getElementById('musicPlayer');
+                const playerToggle = document.getElementById('playerToggle');
+                const playPauseBtn = document.getElementById('playPauseBtn');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const progressContainer = document.querySelector('.progress-container-top');
+                const progressBar = document.getElementById('progressBar');
+                const volumeSlider = document.getElementById('volumeSlider');
+                const volumeLevel = document.getElementById('volumeLevel');
+                const volumeDot = document.getElementById('volumeDot');
+                const volumePercent = document.getElementById('volumePercent');
+                const volumeIcon = document.getElementById('volumeIcon');
+                const currentTimeEl = document.getElementById('currentTime');
+                const durationEl = document.getElementById('duration');
+                const albumArt = document.getElementById('albumArt');
+                const trackName = document.getElementById('trackName');
+                const trackArtist = document.getElementById('trackArtist');
+                const trackPosition = document.getElementById('trackPosition');
+                const audio = new Audio();
+                const tracks = [{
+                    title: "In my zone",
+                    artist: "Yuno Miles",
+                    src: "1.mp3",
+                    cover: "1.png"
+                }, {
+                    title: "Just dance Hoodtrap",
+                    artist: "Hood Sauce",
+                    src: "2.mp3",
+                    cover: "2.png"
+                }, {
+                    title: "Show me how",
+                    artist: "Jalenrekt",
+                    src: "3.mp3",
+                    cover: "3.png"
+                }, {
+                    title: "Internet Swiping",
+                    artist: "Punchmade Dev",
+                    src: "4.mp3",
+                    cover: "4.png"
+                }, {
+                    title: "Foreal",
+                    artist: "Truefaygo",
+                    src: "5.mp3",
+                    cover: "5.png"
+                }];
+                let currentTrackIndex = 0;
+                let isPlaying = false;
+                let isPlayerVisible = true;
+                let isDraggingVolume = false;
+
+                function loadTrack(index) {
+                    const track = tracks[index];
+                    audio.src = track.src;
+                    trackName.textContent = track.title;
+                    trackArtist.innerHTML = `${track.artist} • <span id="trackPosition">${index + 1} of ${tracks.length}</span>`;
+                    albumArt.src = track.cover;
+                    progressBar.style.width = '0%';
+                    currentTimeEl.textContent = '0:00';
+                    durationEl.textContent = '0:00';
+                    audio.addEventListener('loadedmetadata', () => {
+                        durationEl.textContent = formatTime(audio.duration);
+                    }, {
+                        once: true
+                    });
+                }
+
+                function formatTime(seconds) {
+                    if (isNaN(seconds)) return '0:00';
+                    const mins = Math.floor(seconds / 60);
+                    const secs = Math.floor(seconds % 60);
+                    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+                }
+
+                function updateProgress() {
+                    const {
+                        currentTime,
+                        duration
+                    } = audio;
+                    if (isNaN(duration)) return;
+                    const progressPercent = (currentTime / duration) * 100;
+                    progressBar.style.width = `${progressPercent}%`;
+                    currentTimeEl.textContent = formatTime(currentTime);
+                }
+
+                function setProgress(e) {
+                    const width = this.clientWidth;
+                    const clickX = e.offsetX;
+                    const duration = audio.duration;
+                    if (isNaN(duration)) return;
+                    audio.currentTime = (clickX / width) * duration;
+                }
+
+                function togglePlay() {
+                    if (isPlaying) {
+                        pauseTrack();
+                    } else {
+                        playTrack();
+                    }
+                }
+
+                function playTrack() {
+                    isPlaying = true;
+                    audio.play().catch(error => {
+                        console.log("Auto-play was prevented");
+                    });
+                    playPauseBtn.innerHTML = '<i data-feather="pause"></i>';
+                    feather.replace();
+                }
+
+                function pauseTrack() {
+                    isPlaying = false;
+                    audio.pause();
+                    playPauseBtn.innerHTML = '<i data-feather="play"></i>';
+                    feather.replace();
+                }
+
+                function nextTrack() {
+                    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+                    loadTrack(currentTrackIndex);
+                    if (isPlaying) {
+                        playTrack();
+                    }
+                }
+
+                function prevTrack() {
+                    currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+                    loadTrack(currentTrackIndex);
+                    if (isPlaying) {
+                        playTrack();
+                    }
+                }
+
+                function setVolume(e) {
+                    const width = volumeSlider.clientWidth;
+                    const rect = volumeSlider.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const volume = Math.max(0, Math.min(1, clickX / width));
+                    updateVolumeDisplay(volume);
+                }
+
+                function updateVolumeDisplay(volume) {
+                    audio.volume = volume;
+                    const percent = volume * 100;
+                    volumeLevel.style.width = `${percent}%`;
+                    volumeDot.style.left = `calc(${percent}% - 5px)`;
+                    volumePercent.textContent = `${Math.round(percent)}%`;
+                    if (volume === 0) {
+                        volumeIcon.setAttribute('data-feather', 'volume-x');
+                    } else if (volume < 0.5) {
+                        volumeIcon.setAttribute('data-feather', 'volume-1');
+                    } else {
+                        volumeIcon.setAttribute('data-feather', 'volume-2');
+                    }
+                    feather.replace();
+                }
+
+                function startVolumeDrag(e) {
+                    isDraggingVolume = true;
+                    document.addEventListener('mousemove', onVolumeDrag);
+                    document.addEventListener('mouseup', stopVolumeDrag);
+                    setVolume(e);
+                    e.preventDefault();
+                }
+
+                function onVolumeDrag(e) {
+                    if (!isDraggingVolume) return;
+                    setVolume(e);
+                }
+
+                function stopVolumeDrag() {
+                    isDraggingVolume = false;
+                    document.removeEventListener('mousemove', onVolumeDrag);
+                    document.removeEventListener('mouseup', stopVolumeDrag);
+                }
+
+                function togglePlayer() {
+                    isPlayerVisible = !isPlayerVisible;
+                    if (isPlayerVisible) {
+                        musicPlayer.classList.remove('hidden');
+                        playerToggle.querySelector('i').setAttribute('data-feather', 'chevron-up');
+                        document.querySelector('main').style.marginTop = '52px';
+                    } else {
+                        musicPlayer.classList.add('hidden');
+                        playerToggle.querySelector('i').setAttribute('data-feather', 'chevron-down');
+                        document.querySelector('main').style.marginTop = '0';
+                    }
+                    feather.replace();
+                }
+                playerToggle.addEventListener('click', togglePlayer);
+                playPauseBtn.addEventListener('click', togglePlay);
+                prevBtn.addEventListener('click', prevTrack);
+                nextBtn.addEventListener('click', nextTrack);
+                progressContainer.addEventListener('click', setProgress);
+                volumeSlider.addEventListener('click', setVolume);
+                volumeDot.addEventListener('mousedown', startVolumeDrag);
+                audio.addEventListener('timeupdate', updateProgress);
+                audio.addEventListener('ended', nextTrack);
+                audio.addEventListener('play', () => {
+                    isPlaying = true;
+                    playPauseBtn.innerHTML = '<i data-feather="pause"></i>';
+                    feather.replace();
+                });
+                audio.addEventListener('pause', () => {
+                    isPlaying = false;
+                    playPauseBtn.innerHTML = '<i data-feather="play"></i>';
+                    feather.replace();
+                });
+                loadTrack(currentTrackIndex);
+                updateVolumeDisplay(0.10);
+
+                function startMusicOnManualPlay() {
+                    if (!musicStarted && userConsent !== false) {
+                        playTrack();
+                        musicStarted = true;
+                    }
+                }
+                if (userConsent !== false) {
+                    playPauseBtn.addEventListener('click', startMusicOnManualPlay);
+                }
+                new Typed("#typed", {
+                    strings: ["Developer", "Carder", "CC Seller"],
+                    typeSpeed: 80,
+                    backSpeed: 40,
+                    backDelay: 1500,
+                    loop: true
+                });
+                const navItems = document.querySelectorAll('.nav-item');
+                const sections = document.querySelectorAll('.section');
+                navItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        navItems.forEach(i => i.classList.remove('active'));
+                        item.classList.add('active');
+                        const target = item.getAttribute('data-target');
+                        sections.forEach(sec => {
+                            sec.classList.remove('active');
+                            if (sec.id === target) sec.classList.add('active');
+                        });
+                        feather.replace();
+                    });
+                });
+                const cryptoWallets = document.querySelectorAll('.crypto-wallet');
+                const toast = document.getElementById('toast');
+                cryptoWallets.forEach(wallet => {
+                    wallet.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        const address = wallet.getAttribute('data-address');
+                        const coin = wallet.getAttribute('data-coin');
+                        try {
+                            await navigator.clipboard.writeText(address);
+                            wallet.classList.add('copied');
+                            toast.textContent = `${coin} address copied!`;
+                            toast.classList.add('show');
+                            setTimeout(() => {
+                                wallet.classList.remove('copied');
+                                toast.classList.remove('show');
+                            }, 2000);
+                        } catch (err) {
+                            const textArea = document.createElement('textarea');
+                            textArea.value = address;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            wallet.classList.add('copied');
+                            toast.textContent = `${coin} address copied!`;
+                            toast.classList.add('show');
+                            setTimeout(() => {
+                                wallet.classList.remove('copied');
+                                toast.classList.remove('show');
+                            }, 2000);
+                        }
+                    });
+                });
+            });
+            document.addEventListener("DOMContentLoaded", () => {
+                const skillProgresses = document.querySelectorAll('.skill-progress');
+                skillProgresses.forEach(progress => {
+                    const level = progress.getAttribute('data-level');
+                    setTimeout(() => {
+                        progress.style.width = `${level}%`;
+                    }, 500);
+                });
+                const actionButtons = document.querySelectorAll('.action-btn');
+                actionButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const target = button.getAttribute('data-target');
+                        if (target) {
+                            const navItems = document.querySelectorAll('.nav-item');
+                            const sections = document.querySelectorAll('.section');
+                            navItems.forEach(item => item.classList.remove('active'));
+                            sections.forEach(sec => sec.classList.remove('active'));
+                            document.querySelector(`[data-target="${target}"]`).classList.add('active');
+                            document.getElementById(target).classList.add('active');
+                            feather.replace();
+                        }
+                    });
+                });
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+                const animatedElements = document.querySelectorAll('.stat-card, .skill-item, .featured-card');
+                animatedElements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(el);
+                });
+            });
+            document.addEventListener('DOMContentLoaded', function() {
+                const cryptoWallets = document.querySelectorAll('.crypto-wallet');
+                const toast = document.getElementById('toast');
+                if (!toast) {
+                    const toastEl = document.createElement('div');
+                    toastEl.id = 'toast';
+                    toastEl.className = 'toast';
+                    document.body.appendChild(toastEl);
+                }
+                cryptoWallets.forEach(wallet => {
+                    wallet.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const address = wallet.getAttribute('data-address');
+                        const coin = wallet.getAttribute('data-coin');
+                        const toast = document.getElementById('toast');
+                        try {
+                            await navigator.clipboard.writeText(address);
+                            showToast(`${coin} address copied to clipboard!`);
+                        } catch (err) {
+                            const textArea = document.createElement('textarea');
+                            textArea.value = address;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            showToast(`${coin} address copied to clipboard!`);
+                        }
+                    });
+                });
+
+                function showToast(message) {
+                    const toast = document.getElementById('toast');
+                    toast.textContent = message;
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 2000);
+                }
+            });
+        </script>
+</body>
+
+</html>
+
